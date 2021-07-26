@@ -9,14 +9,39 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CineMania.Migrations
 {
     [DbContext(typeof(CinemaniaContext))]
-    [Migration("20210709172112_InitialDbCreationAndDataSeed")]
-    partial class InitialDbCreationAndDataSeed
+    [Migration("20210726113315_firstEditMigration")]
+    partial class firstEditMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.7");
+
+            modelBuilder.Entity("CineMania.Models.Message", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Messages");
+                });
 
             modelBuilder.Entity("CineMania.Models.Movie", b =>
                 {
