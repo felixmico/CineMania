@@ -1,71 +1,25 @@
 ﻿@page
-@model CineMania.Pages.Movies.contactModel
+@model CineMania.Pages.Movies.ContactModel
 
 @{
     ViewData["Title"] = "Contact us";
     Layout = "~/Pages/Shared/_ContactLayout.cshtml";
 }
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-12">
-            <div class="jumbotron jumbotron-sm">
+            <div class="jumbotron jumbotron-sm bg-transparent">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-lg-12">
                             <h1 class="h1">
-                                Contact us <small>Feel free to contact us</small></h1>
+                                Contact us, <small>Feel free to text us for any concerns</small></h1>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
-                        <div class="well well-sm">
-                            <form>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">
-                                            Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">
-                                            Email Address</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                            </span>
-                                            <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="subject">
-                                            Subject</label>
-                                        <select id="subject" name="subject" class="form-control" required="required">
-                                            <option value="na" selected="">Choose One:</option>
-                                            <option value="service">General Customer Service</option>
-                                            <option value="suggestions">Suggestions</option>
-                                            <option value="product">Product Support</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">
-                                            Message</label>
-                                        <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                            placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary pull-right" 
-                                            id="btnContactUs">
-                                        Send Message</button>
-                                </div>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
                     <div class="col-md-4">
                         <form>
                             <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
@@ -79,9 +33,61 @@
                             </address>
                             <address>
                                 <strong>Full Name</strong><br>
-                                <a href="mailto:#">first.last@example.com</a>
+                                <a href="#">Mur_Hussain@CineMania.com</a>
                             </address>
                         </form>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="well well-sm">
+                            <form method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Message.Name">Name:</label>
+                                            <input type="text" asp-for="Message.Name" class="form-control" placeholder="Enter name"/>
+                                            <span asp-validation-for="Message.Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Message.Email">
+                                                Email Address:
+                                            </label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                                </span>
+                                                <input type="email" class="form-control" asp-for="Message.Email" placeholder="Enter email"/>
+                                                <span asp-validation-for="Message.Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Message.Subject">
+                                                Subject:
+                                            </label>
+                                            <select asp-for="Message.Subject" class="form-control">
+                                                <option value="na" selected="" class="text-muted">Choose One:</option>
+                                                <option value="service">General Customer Service</option>
+                                                <option value="suggestions">Suggestions</option>
+                                                <option value="product">Product Support</option>
+                                            </select>
+                                            <span asp-validation-for="Message.Subject" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Message.Body">
+                                                Message:</label>
+                                            <textarea name="message" asp-for="Message.Body" class="form-control" rows="8" cols="25"
+                                                placeholder="Hint Your Message Here...."></textarea>
+                                            <span asp-validation-for="Message.Body" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" value="Send" class="btn btn-primary pull-right">
+                                            Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

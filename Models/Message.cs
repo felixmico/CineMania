@@ -9,6 +9,8 @@ namespace CineMania.Models
         [Required(ErrorMessage = "Your Name Is Required"), MaxLength(60,
              ErrorMessage = "Your Name Can't Go Beyond 60 Characters")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Please Provide Your Email")]
+        public string Email { get; set; }
         [Required(ErrorMessage = "Please Select Subject From Dropdown")]
         public string Subject { get; set; }
         [Required(ErrorMessage = "Please Provide The Body Of Message"), 

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CineMania.Migrations
 {
     [DbContext(typeof(CinemaniaContext))]
-    [Migration("20210726113315_firstEditMigration")]
-    partial class firstEditMigration
+    [Migration("20210726155644_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,10 @@ namespace CineMania.Migrations
                     b.Property<string>("Body")
                         .IsRequired()
                         .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
